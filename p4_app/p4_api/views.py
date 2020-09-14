@@ -106,7 +106,7 @@ class GameViewSet(viewsets.ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         game = Game.objects.get(pk=self.kwargs["pk"])
-        if not request.user == recipe.owner:
+        if not request.user == game.owner:
             raise PermissionDenied(
                 "You have no permission to edit this game"
             )
