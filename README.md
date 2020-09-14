@@ -14,6 +14,33 @@ Google Sheet link: https://docs.google.com/spreadsheets/d/1MiYUM5Rr0hr_9kbYVNgYz
 
 Models: 
 
+User Model:
+
+```
+class User(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(db_index=True, max_length=255, unique=True)
+    email = models.EmailField(db_index=True, unique=True)
+    first_name = models.CharField(max_length=255, null=True, blank=True)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
+
+    # *** REQUIRED_FIELDS = ['email', 'first_name', 'last_name'] ***
+
+    # Tells Django that the UserManager class defined above should manage
+    # objects of this type.
+    objects = UserManager()
+
+    def __str__(self):
+        return self.username
+
+```
+
 Category Model:
 
 ```
