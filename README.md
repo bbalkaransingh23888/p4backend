@@ -30,11 +30,12 @@ class Category(models.Model):
 
 Games Model: 
 
-class Recipe(models.Model):
+class Game(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='recipes', on_delete=models.CASCADE)
 
     title = models.CharField(max_length=100)
+    image_url = models.URLField
     description = models.TextField(blank=True)
     additional info = models.CharField(max_length=5000)
     added = models.DateTimeField(auto_now_add=True)
