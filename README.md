@@ -45,10 +45,11 @@ class Game(models.Model):
 Time-Priority Index: !['Time/Priority Index'](image4.jpeg)
 
 MVP list:
-1)	Full CRUD for both models
+1)	Full CRUD for both models w/ routes
 2)	local API, postman-tested
 3)	backend API deployed to heroku, post-man tested
 4)  Connect frontend and backend
+5)  Authentication
 
 Post-MVP list:
 None atm (will update this at a later point)
@@ -59,10 +60,11 @@ MVP:
 
 |Component|Priority|Est. Time|Time Invested|Actual Time|
 |---------|--------|---------|-------------|-----------|
-|Full CRUD for both models|High|4 Hrs.||| 		
+|Full CRUD for both models w/ routes|High|4 Hrs.||| 		
 |Connect frontend and backend|High|4 Hrs.||| 		
 |local API, postman-tested|High|2 Hrs.||| 		
-|backend API deployed to heroku, post-man tested|High|3 Hrs.||| 			
+|backend API deployed to heroku, post-man tested|High|3 Hrs.||| 
+|Authentication|High|4 Hrs.|||			
 		
 
 Post-MVP:
