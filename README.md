@@ -70,7 +70,8 @@ class Game(models.Model):
     is_public = models.BooleanField(default=False)
 ```
 
-Time-Priority Index: !['Time/Priority Index'](image4.jpeg)
+Time-Priority Index: 
+https://docs.google.com/document/d/1Je7uT1pui2FGCPIXbU3q9nWZWM12zFAUZNWysSR4OQ8/edit
 
 MVP list:
 1)	Full CRUD for both models w/ routes
