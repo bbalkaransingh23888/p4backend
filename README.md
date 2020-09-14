@@ -3,7 +3,7 @@ Project Worksheet – Project Four – Final Project - Backend
 SEI-pineapple
 
 Project Description:
-This is the backend portion for an app that allows a user to input a movie quote and attach it to the movie that it came from. A fellow cohort mate helped me to come up with this idea, so I am very thankful to that person (not a member of this project group)
+This is the backend repo for a gamesite app. Basically, it would be like one of those free game sites where you can play games on your computer. The difference is that you would have to log in and actually save the links to the games you want to play. One could also make their own games (or their own versions) and save them on here to show to prospective employers, an additional project showcase if you will.
 
 
 
