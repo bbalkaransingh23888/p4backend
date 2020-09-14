@@ -16,6 +16,7 @@ Models:
 
 Category Model:
 
+```
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'categories'
@@ -26,21 +27,21 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
+```
 
 Games Model: 
 
+```
 class Game(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, related_name='recipes', on_delete=models.CASCADE)
-
     title = models.CharField(max_length=100)
     image_url = models.URLField
     description = models.TextField(blank=True)
     additional info = models.CharField(max_length=5000)
     added = models.DateTimeField(auto_now_add=True)
     is_public = models.BooleanField(default=False)
-
+```
 
 Time-Priority Index: !['Time/Priority Index'](image4.jpeg)
 
