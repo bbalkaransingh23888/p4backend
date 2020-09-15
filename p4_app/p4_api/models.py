@@ -15,7 +15,7 @@ class Category(models.Model):
 
 class Game(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, related_name='recipes', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='games', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     image_url = models.URLField
     description = models.TextField(blank=True)
