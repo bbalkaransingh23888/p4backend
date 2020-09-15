@@ -2,6 +2,14 @@ Brandon Balkaransingh
 Project Worksheet – Project Four – Final Project - Backend
 SEI-pineapple
 
+Project Schedule:
+|Day|Deliverable|Status|
+|---|-----------|------|
+|Day 1|Project Worksheet|Complete|
+|Day 1|Models, views, routes for auth and API|Complete|
+|Day 2|Test locally on postman; debug|Ongoing|
+|Day 2|Test heroku app on postman; debug|Incomplete|
+
 Project Description:
 This is the backend repo for a gamesite app. Basically, it would be like one of those free game sites where you can play games on your computer. The difference is that you would have to log in and actually save the links to the games you want to play. One could also make their own games (or their own versions) and save them on here to show to prospective employers, an additional project showcase if you will.
 
@@ -93,10 +101,14 @@ MVP:
 |Connect frontend and backend|High|4 Hrs.||| 		
 |local API, postman-tested|High|2 Hrs.||| 		
 |backend API deployed to heroku, post-man tested|High|3 Hrs.||| 
-|Authentication|High|4 Hrs.|||			
+|Authentication with models, necessary views, routes, etc.|High|4 Hrs.|||			
 		
 
 Post-MVP:
 
 |Component|Difficulty|Est. Time|Time Invested|Actual Time|
 |---------|--------------------|---------|-------------|-----------|
+
+Additional Libraries:
+1) rest_framework
+2) Django Rest Framework - JWT
