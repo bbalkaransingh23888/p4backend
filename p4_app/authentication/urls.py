@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from p4_app.authentication.views import RegistrationAPIView, LoginAPIView, UserListViewSet
 
 urlpatterns = [
