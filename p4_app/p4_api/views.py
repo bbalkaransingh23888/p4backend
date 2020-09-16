@@ -3,11 +3,12 @@ from rest_framework import status
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.exceptions import (
-ValidationError, PermissionDenied
+    ValidationError, PermissionDenied
 )
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from p4_app.p4_api.models import Category, Game
 from p4_app.p4_api.serializers import CategorySerializer, GameSerializer
+
 
 # Create your views here.
 
@@ -19,10 +20,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
     def get_queryset(self):
+        print("HELLOOOOO!!!!")
         queryset = Category.objects.all().filter(owner=self.request.user)
+        print(queryset)
         return queryset
 
     def create(self, request, *args, **kwargs):
+        print("This is the create function")
         print(request)
         print(*args)
         print(**kwargs)
@@ -38,6 +42,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
         return super().create(request)
 
     def perform_create(self, serializer):
+        print("Creating a category")
         serializer.save(owner=self.request.user)
 
     def destroy(self, request, *args, **kwargs):
@@ -46,11 +51,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
             raise PermissionDenied("You cannot destroy me. I shall destroy you for your outrage, plebeian!")
         return super().destroy(self, request, *args, **kwargs)
 
+
 class CategoryGames(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = GameSerializer
 
     def get_queryset(self):
+        print("I am returning games")
         if self.kwargs.get("category_pk"):
             category = Category.objects.get(pk=self.kwargs["category_pk"])
             queryset = Game.objects.filter(
@@ -60,7 +67,9 @@ class CategoryGames(generics.ListCreateAPIView):
             return queryset
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        print("I am creating games")
+        print(self.request.user)
+        serializer.save()
 
 
 class SingleCategoryGame(generics.RetrieveUpdateDestroyAPIView):
@@ -68,7 +77,7 @@ class SingleCategoryGame(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GameSerializer
 
     def get_queryset(self):
-        #localhost:8000/categories/category_pk<1>/games/pk<1>/
+        # localhost:8000/categories/category_pk<1>/games/pk<1>/
         if self.kwargs.get("category_pk") and self.kwargs.get("pk"):
             category = Category.objects.get(pk=self.kwargs["category_pk"])
             queryset = Game.objects.filter(
@@ -77,6 +86,7 @@ class SingleCategoryGame(generics.RetrieveUpdateDestroyAPIView):
                 category=category
             )
             return queryset
+
 
 class GameViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
@@ -111,17 +121,3 @@ class GameViewSet(viewsets.ModelViewSet):
                 "You have no permission to edit this game"
             )
         return super().update(request, *args, **kwargs)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
