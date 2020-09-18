@@ -21,6 +21,7 @@ class Game(models.Model):
     category = models.ForeignKey(Category, related_name='games', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     image_url = models.URLField(blank=True)
+    game_url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     additional_info = models.CharField(max_length=5000)
     added = models.DateTimeField(auto_now_add=True)
