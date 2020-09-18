@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'p4_app.p4_api',
     'p4_app.authentication',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
