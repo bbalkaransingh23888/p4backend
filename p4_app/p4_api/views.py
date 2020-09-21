@@ -20,16 +20,10 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
     def get_queryset(self):
-        print("HELLOOOOO!!!!")
         queryset = Category.objects.all().filter(owner=self.request.user)
-        print(queryset)
         return queryset
 
     def create(self, request, *args, **kwargs):
-        print("This is the create function")
-        print(request)
-        print(*args)
-        print(**kwargs)
         # check if the category already exists for current user
         category = Category.objects.filter(
             name=request.data.get('name'),
@@ -42,7 +36,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
         return super().create(request)
 
     def perform_create(self, serializer):
-        print("Creating a category")
         serializer.save(owner=self.request.user)
 
     def destroy(self, request, *args, **kwargs):
@@ -57,7 +50,6 @@ class CategoryGames(generics.ListCreateAPIView):
     serializer_class = GameSerializer
 
     def get_queryset(self):
-        print("I am returning games")
         if self.kwargs.get("category_pk"):
             category = Category.objects.get(pk=self.kwargs["category_pk"])
             queryset = Game.objects.filter(
@@ -67,8 +59,6 @@ class CategoryGames(generics.ListCreateAPIView):
             return queryset
 
     def perform_create(self, serializer):
-        print("I am creating games")
-        print(self.request.user)
         serializer.save()
 
 
