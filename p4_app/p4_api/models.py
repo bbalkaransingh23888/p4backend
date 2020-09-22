@@ -20,7 +20,7 @@ class Game(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, related_name='games', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    image_url = models.URLField(blank=True)
+    image_url = models.URLField(blank=True) #Thanks Magda for helping me with the url fields and heroku test issues
     game_url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     additional_info = models.CharField(max_length=5000)
