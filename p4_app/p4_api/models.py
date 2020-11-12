@@ -8,7 +8,6 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     name = models.CharField(max_length=100)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -27,7 +26,8 @@ class Game(models.Model):
     game_url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     additional_info = models.CharField(max_length=5000)
-    added = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     is_public = models.BooleanField(default=False)
 
     def __str__(self):
