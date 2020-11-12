@@ -27,7 +27,7 @@ class Game(models.Model):
     game_url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     additional_info = models.CharField(max_length=5000)
-    created_at = models.DateTimeField(auto_now_add=True)
+    added = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_public = models.BooleanField(default=False)
 
