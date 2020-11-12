@@ -20,7 +20,7 @@ class Game(models.Model):
     class Meta:
         verbose_name_plural = 'games'
 
-    # owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, related_name='categories', on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=100)
     image_url = models.URLField(blank=True)
